@@ -1,0 +1,5 @@
+﻿  SaDPA_1.cpp
+C:\Users\titly\source\repos\SaDPA_1\SaDPA_1\Dynamic_mas.h(101,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\titly\source\repos\SaDPA_1\SaDPA_1\Static_mas.h(89,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\titly\source\repos\SaDPA_1\SaDPA_1\Vec.h(58,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  SaDPA_1.vcxproj -> C:\Users\titly\source\repos\SaDPA_1\x64\Debug\SaDPA_1.exe
