@@ -26,7 +26,7 @@ struct Static_mas {
 	void insert(Question& obj) {
 		bool newth = true;
 		for (int i = 0; i < curr_size_theme; i++) {
-			if (obj.num_right == mas[i].num_theme) {
+			if (obj.num_theme == mas[i].num_theme) {
 				newth = false;
 			}
 		}
@@ -44,7 +44,7 @@ struct Static_mas {
 		if (aim == 0) {
 			aim = curr_size;
 		}
-		for (int i = curr_size; i >= aim; i--) {
+		for (int i = curr_size; i > aim; i--) {
 			mas[i] = mas[i - 1];
 		}
 		mas[aim] = obj;
@@ -81,7 +81,7 @@ void print(Static_mas& obj) {
 		for (int j = 0; j < obj.mas[i].curr_vars; j++) {
 			cout << j + 1 << ") " << obj.mas[i].ans[j] << endl;
 		}
-		cout << "Номер правильного ответа: " << obj.mas[i].num_right << ")" << endl;
+		cout << "Номер правильного ответа: " << obj.mas[i].num_right << ")" << endl<<endl;
 	}
 }
 

@@ -21,7 +21,7 @@ struct Dynamic_mas {
 				for (int k = 0; k < mas[i][j].curr_vars; k++) {
 					cout << k + 1 << ") " << mas[i][j].ans[k] << endl;
 				}
-				cout << "Номер правильного ответа: " << mas[i][j].num_right << endl;
+				cout << "Номер правильного ответа: " << mas[i][j].num_right << endl<<endl;
 			}
 		}
 	}

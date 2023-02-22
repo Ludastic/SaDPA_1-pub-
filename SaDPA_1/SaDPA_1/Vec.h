@@ -23,7 +23,7 @@ struct Vec {
 				for (int k = 0; k < vec[i][j].curr_vars; k++) {
 					cout << k + 1 << ") " << vec[i][j].ans[k] << endl;
 				}
-				cout << "Номер правильного ответа: " << vec[i][j].num_right << endl;
+				cout << "Номер правильного ответа: " << vec[i][j].num_right << endl<<endl;
 			}
 		}
 	}
