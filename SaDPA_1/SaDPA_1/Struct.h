@@ -3,13 +3,13 @@
 #pragma once
 #define _STRUCT_H
 using namespace std;
-struct Question 
+struct Question //структура записи 
 {
 	int num_theme{}, points{}, num_right{}, curr_vars{};
 	string text_q, ans[10];
 };
 
-void inp_for_q(Question& obj) {
+void inp_for_q(Question& obj) { //заполнение вопроса
 	cout << "Введите номер темы: ";
 	cin >> obj.num_theme;
 	cout << "Введите текст вопроса: ";
@@ -28,7 +28,7 @@ void inp_for_q(Question& obj) {
 	cin >> obj.num_right;
 }
 
-void print(Question obj) {
+void print(Question obj) { //вывод одного вопроса
 		cout <<"Номер темы: " << obj.num_theme << endl <<
 			"Текст вопроса: " << obj.text_q << endl << endl <<
 			"Балл за правильный ответ: " << obj.points <<

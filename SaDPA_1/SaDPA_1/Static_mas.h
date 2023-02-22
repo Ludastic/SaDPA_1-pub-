@@ -5,7 +5,7 @@
 #pragma once
 #define _STATIC_MAS_H
 using namespace std;
-struct Static_mas {
+struct Static_mas { //структура таблицы на статическом массиве
 	int curr_size = 0, curr_size_theme=0;
 	static const int max_size = 100;
 	Question mas[max_size];
@@ -23,7 +23,7 @@ struct Static_mas {
 			cout << "Номер правильного ответа: " << mas[i].num_right << ")" << endl;
 		}
 	}*/
-	void insert(Question& obj) {
+	void insert(Question& obj) { //функция добавления задания в таблицу (уже заполненного задания)
 		bool newth = true;
 		for (int i = 0; i < curr_size_theme; i++) {
 			if (obj.num_theme == mas[i].num_theme) {
@@ -50,7 +50,7 @@ struct Static_mas {
 		mas[aim] = obj;
 		curr_size++;
 	}
-	void delete_q(int num_t) {
+	void delete_theme(int num_t) { //функция удаления заданий по одной теме
 		for (int i = 0; i < curr_size; i++) {
 			if (mas[i].num_theme == num_t) {
 				for (int j = i; j < curr_size - 1; j++) {
@@ -70,7 +70,7 @@ struct Static_mas {
 		}
 	}
 };
-void print(Static_mas& obj) {
+void print(Static_mas& obj) { //функция печати всей таблицы (на вход подается таблица)
 	cout << endl << endl << "///////////////ВАША ТАБЛИЦА///////////////" << endl << endl;
 	for (int i = 0; i < obj.curr_size; i++) {
 		cout << "№ " << i + 1 << endl <<
@@ -85,7 +85,7 @@ void print(Static_mas& obj) {
 	}
 }
 
-void form_test(Static_mas& obj) {
+void form_test(Static_mas& obj) { //функция формирования теста (на вход подается таблица)
 	srand(time(NULL));
 	int *theme_state = new int[obj.curr_size_theme];
 	for (int i = 0; i < obj.curr_size_theme; i++) {

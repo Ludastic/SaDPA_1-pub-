@@ -5,7 +5,7 @@
 #include "Struct.h"
 #include <string>
 using namespace std;
-int input_static(Static_mas& obj) {
+int input_static(Static_mas& obj) { //вспомогательная функция для работы с новым вопросом и дальнейшим добавлением его в таблицу
 	while (1 == 1) {
 		Question newq;
 		inp_for_q(newq);
@@ -21,7 +21,7 @@ int input_static(Static_mas& obj) {
 		}
 	}
 }
-int menu_static(Static_mas& obj) {
+int menu_static(Static_mas& obj) { //меню для управления таблицей на основе статического массива 
 	while (1 == 1) {
 		cout << "1. Создать новый вопрос и добавить его в таблицу.\n" <<
 			"2. Сформировать тест, состоящий из двух вопросов по каждой теме.\n" <<
@@ -43,7 +43,7 @@ int menu_static(Static_mas& obj) {
 			cout << "Введите номер темы для удаления(при вводе несуществующей темы - ничего не изменится): ";
 			int num_del;
 			cin >> num_del;
-			obj.delete_q(num_del);
+			obj.delete_theme(num_del);
 			print(obj);
 			break;
 		case 4:
@@ -58,7 +58,7 @@ int menu_static(Static_mas& obj) {
 	}
 }
 ///////////
-int input_dynamic(Dynamic_mas& obj) {
+int input_dynamic(Dynamic_mas& obj) { //вспомогательная функция для работы с новым вопросом и дальнейшим добавлением его в таблицу
 	while (1 == 1) {
 		Question newq;
 		inp_for_q(newq);
@@ -69,13 +69,13 @@ int input_dynamic(Dynamic_mas& obj) {
 		cin >> inp;
 		if (inp == 1) {
 			obj.insert(newq);
-			obj.print();
+			print(obj);
 			return 0;
 		}
 	}
 }
 
-int menu_dynamic(Dynamic_mas& obj) {
+int menu_dynamic(Dynamic_mas& obj) { //меню для управления таблицей на основе динамического массива 
 	while (1 == 1) {
 		cout << "1. Создать новый вопрос и добавить его в таблицу.\n" <<
 			"2. Сформировать тест, состоящий из двух вопросов по каждой теме.\n" <<
@@ -97,11 +97,11 @@ int menu_dynamic(Dynamic_mas& obj) {
 			cout << "Введите номер темы для удаления(при вводе несуществующей темы - ничего не изменится): ";
 			int num_del;
 			cin >> num_del;
-			obj.delete_q(num_del);
-			obj.print();
+			obj.delete_theme(num_del);
+			print(obj);
 			break;
 		case 4:
-			obj.print();
+			print(obj);
 			break;
 		case 5:
 			cout << endl << "ЗАВЕРШЕНИЕ РАБОТЫ С ТАБЛИЦЕЙ"<<endl;
@@ -113,7 +113,7 @@ int menu_dynamic(Dynamic_mas& obj) {
 }
 ///////////
 
-int input_vec(Vec& obj) {
+int input_vec(Vec& obj) { //вспомогательная функция для работы с новым вопросом и дальнейшим добавлением его в таблицу 
 	while (1 == 1) {
 		Question newq;
 		inp_for_q(newq);
@@ -124,13 +124,13 @@ int input_vec(Vec& obj) {
 		cin >> inp;
 		if (inp == 1) {
 			obj.insert(newq);
-			obj.print();
+			print(obj);
 			return 0;
 		}
 	}
 }
 
-int menu_vec(Vec& obj) {
+int menu_vec(Vec& obj) { //меню для управления таблицей векторным способом
 	while (1 == 1) {
 		cout << "1. Создать новый вопрос и добавить его в таблицу.\n" <<
 			"2. Сформировать тест, состоящий из двух вопросов по каждой теме.\n" <<
@@ -152,11 +152,11 @@ int menu_vec(Vec& obj) {
 			cout << "Введите номер темы для удаления(при вводе несуществующей темы - ничего не изменится): ";
 			int num_del;
 			cin >> num_del;
-			obj.delete_q(num_del);
-			obj.print();
+			obj.delete_theme(num_del);
+			print(obj);
 			break;
 		case 4:
-			obj.print();
+			print(obj);
 			break;
 		case 5:
 			cout << endl << "ЗАВЕРШЕНИЕ РАБОТЫ С ТАБЛИЦЕЙ"<<endl;
@@ -167,7 +167,7 @@ int menu_vec(Vec& obj) {
 	}
 }
 
-int menu() {
+int menu() { // меню первого уровня
 	while (1 == 1) {
 		cout << "1. Работа с таблицей на основе статического массива.\n" <<
 			"2. Работа с таблицей на основе динамического массива.\n" <<

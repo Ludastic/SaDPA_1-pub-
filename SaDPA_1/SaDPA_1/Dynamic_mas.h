@@ -5,11 +5,11 @@
 #pragma once
 #define _DYNAMIC_MAS_H
 using namespace std;
-struct Dynamic_mas {
+struct Dynamic_mas { //структура таблицы на динамическом массиве
 	int curr_size = 0, curr_size_theme = 0;
 	Question** mas = new Question*[0];
 	int* size_themes = new int[0];
-	void print() {
+	/*void print() {
 		cout << endl << endl << "///////////////ВАША ТАБЛИЦА///////////////" << endl << endl;
 		for (int i = 0; i < curr_size; i++) {
 			cout << "Номер темы: " << mas[i][0].num_theme << endl;
@@ -24,8 +24,8 @@ struct Dynamic_mas {
 				cout << "Номер правильного ответа: " << mas[i][j].num_right << endl<<endl;
 			}
 		}
-	}
-	void insert(Question& obj) {
+	}*/
+	void insert(Question& obj) { //функция добавления задания в таблицу (уже заполненного задания)
 		int aim = 0;
 		bool IsNew = true;
 		for (int i = 0; i < curr_size; i++) {
@@ -76,7 +76,7 @@ struct Dynamic_mas {
 			curr_size_theme++;
 		}
 	}
-	void delete_q(int num_t) {
+	void delete_theme(int num_t) { //функция удаления заданий по одной теме
 		for (int i = 0; i < curr_size; i++) {
 			if (mas[i][0].num_theme == num_t) {
 				Question** new_mas = new Question * [curr_size - 1];
@@ -97,7 +97,24 @@ struct Dynamic_mas {
 	}
 };
 
-void form_test(Dynamic_mas& obj) {
+void print(Dynamic_mas& obj) { //функция печати всей таблицы (на вход подается таблица)
+	cout << endl << endl << "///////////////ВАША ТАБЛИЦА///////////////" << endl << endl;
+	for (int i = 0; i < obj.curr_size; i++) {
+		cout << "Номер темы: " << obj.mas[i][0].num_theme << endl;
+		for (int j = 0; j < obj.size_themes[i]; j++) {
+			cout << "Вопрос № " << j + 1 << endl <<
+				"Текст вопроса: " << obj.mas[i][j].text_q << endl <<
+				"Балл за правильный ответ: " << obj.mas[i][j].points << endl <<
+				"Варианты ответов: " << endl;
+			for (int k = 0; k < obj.mas[i][j].curr_vars; k++) {
+				cout << k + 1 << ") " << obj.mas[i][j].ans[k] << endl;
+			}
+			cout << "Номер правильного ответа: " << obj.mas[i][j].num_right << endl << endl;
+		}
+	}
+}
+
+void form_test(Dynamic_mas& obj) { //функция формирования теста (на вход подается таблица)
 	srand(time(NULL));
 	cout << endl << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TEST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl << endl;
 	for (int i = 0; i < obj.curr_size; i++) {
